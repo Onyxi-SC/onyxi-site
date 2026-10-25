@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onyx Initiative — Mockup 4: HUD</title>
+<link rel="icon" type="image/svg+xml" href="../onxi-logo-bright.svg">
+<style>
+  :root { --red:#b52424; --red-dk:#7a1515; --fg:#d6d6d4; --dim:#5e5f5d; }
+  * { box-sizing:border-box; margin:0; }
+  html,body { height:100%; }
+  body { background:radial-gradient(ellipse at center, #120808 0%, #000 70%); color:var(--fg);
+    font:13px/1.4 ui-monospace,"JetBrains Mono",Menlo,monospace; overflow:hidden; letter-spacing:.12em; }
+  .frame { position:fixed; inset:3vmin; pointer-events:none; }
+  .frame i { position:absolute; width:5vmin; height:5vmin; border:2px solid var(--red-dk); }
+  .frame i:nth-child(1){ left:0; top:0; border-right:0; border-bottom:0; }
+  .frame i:nth-child(2){ right:0; top:0; border-left:0; border-bottom:0; }
+  .frame i:nth-child(3){ left:0; bottom:0; border-right:0; border-top:0; }
+  .frame i:nth-child(4){ right:0; bottom:0; border-left:0; border-top:0; }
+  .center { position:fixed; left:50%; top:50%; width:min(62vmin,560px); aspect-ratio:1; transform:translate(-50%,-50%); }
+  .ring { position:absolute; inset:0; border-radius:50%; border:1px dashed #3a1a1a; animation:spin 40s linear infinite; }
+  .ring.b { inset:8%; border:1px solid #2a2a2a; border-top-color:var(--red); border-bottom-color:var(--red-dk); animation-duration:14s; animation-direction:reverse; }
+  .logo { position:absolute; inset:24%; background:url("../onxi-logo-bright.svg") center/contain no-repeat; opacity:.9; }
+  .tick { position:absolute; left:50%; top:-1.2rem; transform:translateX(-50%); color:var(--red); }
+  .corner { position:fixed; color:var(--dim); font-size:11px; }
+  .tl { left:calc(3vmin + 6vmin); top:calc(3vmin + 1vmin); }
+  .tr { right:calc(3vmin + 6vmin); top:calc(3vmin + 1vmin); text-align:right; }
+  .bl { left:calc(3vmin + 6vmin); bottom:calc(3vmin + 1vmin); }
+  .br { right:calc(3vmin + 6vmin); bottom:calc(3vmin + 1vmin); text-align:right; }
+  .corner b { color:var(--fg); font-weight:normal; }
+  .title { position:fixed; left:0; right:0; top:calc(50% + min(31vmin,280px) + 1.5rem); text-align:center; }
+  .title h1 { font-size:1.2rem; letter-spacing:.6em; font-weight:600; }
+  .title .status { margin-top:.5rem; color:var(--red); animation:pulse 2s ease-in-out infinite; }
+  .title a { display:inline-block; margin-top:.75rem; color:var(--dim); text-decoration:none; }
+  .title a:hover { color:var(--fg); }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  @keyframes pulse { 50% { opacity:.35; } }
+  @media (prefers-reduced-motion:reduce){ .ring,.status{animation:none!important;} }
+  @media (max-width:600px){ .tr,.bl{display:none;} }
+</style>
+</head>
+<body>
+  <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="corner tl">SYS <b>STANTON</b> · <b>PYRO</b> · <b>NYX</b></div>
+  <div class="corner tr">LINK <b id="clock">--:--:--</b> UTC</div>
+  <div class="corner bl">IFF <b>ONXI</b> · FRIENDLY</div>
+  <div class="corner br">NODE <b>ONYXI.GG</b></div>
+  <div class="center" aria-hidden="true">
+    <div class="ring"></div><div class="ring b"></div>
+    <div class="tick">▼</div>
+    <div class="logo"></div>
+  </div>
+  <div class="title">
+    <h1>ONYX INITIATIVE</h1>
+    <div class="status">[ UNDER CONSTRUCTION ]</div>
+    <a href="https://discord.gg/onyxi">&gt; HAIL: DISCORD.GG/ONYXI</a>
+  </div>
+<script>
+const c = document.getElementById('clock');
+const t = () => c.textContent = new Date().toISOString().slice(11,19);
+t(); setInterval(t, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onyx Initiative — Mockup 3: Dossier</title>
+<link rel="icon" type="image/svg+xml" href="../onxi-logo-bright.svg">
+<style>
+  :root { --red:#b52424; --red-dk:#7a1515; --paper:#141414; --ink:#cfcfcc; }
+  * { box-sizing:border-box; margin:0; }
+  html,body { min-height:100%; }
+  body { background:#000; color:var(--ink); font:15px/1.7 "Courier New",ui-monospace,monospace;
+    display:grid; place-items:center; padding:4vh 1rem; }
+  .sheet { position:relative; width:min(40rem,100%); padding:2.5rem 2.5rem 3rem; background:var(--paper);
+    border:1px solid #262626; box-shadow:0 20px 60px #000; overflow:hidden; }
+  .sheet::before { content:""; position:absolute; inset:0; background:url("../onxi-logo-bright.svg") 120% 110%/70% no-repeat; opacity:.06; pointer-events:none; }
+  .top { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #2a2a2a; padding-bottom:1rem; margin-bottom:1.25rem; }
+  .top img { width:64px; height:64px; }
+  .cls { text-align:right; font-size:.75rem; letter-spacing:.2em; color:#7a7a77; }
+  .cls b { display:block; color:var(--red); font-size:.9rem; }
+  h1 { font-size:1.3rem; letter-spacing:.25em; margin-bottom:1rem; }
+  dl { display:grid; grid-template-columns:9rem 1fr; gap:.25rem 1rem; margin-bottom:1.25rem; }
+  dt { color:#7a7a77; } dd { margin:0; }
+  .x { background:#cfcfcc; color:transparent; user-select:none; border-radius:1px; padding:0 .2em; }
+  p { margin-bottom:.75rem; }
+  .stamp { position:absolute; right:1.5rem; top:45%; transform:rotate(-14deg); border:4px double var(--red); color:var(--red);
+    padding:.4rem 1rem; font:700 1.3rem/1 "Courier New",monospace; letter-spacing:.2em; text-transform:uppercase; opacity:.85;
+    mix-blend-mode:screen; animation:stamp .5s 1s cubic-bezier(.2,1.6,.4,1) both; }
+  .foot { margin-top:1.5rem; font-size:.85rem; color:#7a7a77; }
+  .foot a { color:var(--ink); }
+  @keyframes stamp { from { opacity:0; transform:rotate(-14deg) scale(2.2); } }
+  @media (prefers-reduced-motion:reduce){ .stamp{animation:none;} }
+  @media (max-width:520px){ dl{grid-template-columns:1fr;} .stamp{position:static; display:inline-block; margin-top:1rem;} }
+</style>
+</head>
+<body>
+<article class="sheet">
+  <div class="top">
+    <img src="../onxi-logo-bright.svg" alt="Onyx Initiative logo">
+    <div class="cls"><b>RESTRICTED</b>FILE ONXI-0001<br>DISTRIBUTION: PUBLIC EXCERPT</div>
+  </div>
+  <h1>ONYX INITIATIVE</h1>
+  <dl>
+    <dt>Designation</dt><dd>ONXI</dd>
+    <dt>Classification</dt><dd>Private Military Corporation</dd>
+    <dt>Theatre</dt><dd>Stanton · Pyro · Nyx</dd>
+    <dt>Origin</dt><dd><span class="x">redacted-black-budget-unit</span></dd>
+    <dt>Principals</dt><dd><span class="x">withheld per charter §2</span></dd>
+  </dl>
+  <p>Contracted security, escort, and recovery operations. Client objectives
+     executed <span class="x">without question</span> and without record.</p>
+  <p>Public interface pending review.</p>
+  <div class="stamp">Under construction</div>
+  <div class="foot">Inquiries: <a href="https://discord.gg/onyxi">discord.gg/onyxi</a></div>
+</article>
+</body>
+</html>

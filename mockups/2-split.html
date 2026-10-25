@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onyx Initiative — Mockup 2: Split</title>
+<link rel="icon" type="image/svg+xml" href="../onxi-logo-bright.svg">
+<style>
+  :root { --red:#b52424; --red-dk:#7a1515; }
+  * { box-sizing:border-box; margin:0; }
+  html,body { height:100%; }
+  body { font:16px/1.4 "Helvetica Neue",Arial,sans-serif; overflow:hidden;
+    background:linear-gradient(90deg, #0a0a0a 0 50%, #1c1c1c 50% 100%); color:#d6d6d4; }
+  .seam { position:fixed; left:50%; top:0; bottom:0; width:1px; background:linear-gradient(#0000, var(--red) 20%, var(--red) 80%, #0000); opacity:.6; }
+  .logo { position:fixed; left:50%; top:46%; width:min(46vmin,420px); aspect-ratio:1; transform:translate(-50%,-50%);
+    background:url("../onxi-logo-bright.svg") center/contain no-repeat; filter:drop-shadow(0 0 30px rgba(181,36,36,.25));
+    animation:in 1.6s ease-out both; }
+  .l, .r { position:fixed; top:46%; transform:translateY(-50%); font-weight:800; letter-spacing:.5em; text-transform:uppercase;
+    font-size:clamp(1rem, 3.2vw, 2.2rem); }
+  .l { right:calc(50% + min(26vmin,240px)); color:#5e5f5d; text-align:right; }
+  .r { left:calc(50% + min(26vmin,240px)); color:#d6d6d4; }
+  .foot { position:fixed; left:0; right:0; bottom:9vh; text-align:center; }
+  .status { display:inline-block; padding:.45rem 1rem; letter-spacing:.35em; font-size:.8rem; text-transform:uppercase;
+    border:1px solid #333; background:linear-gradient(90deg,#0a0a0a 50%,#1c1c1c 50%); }
+  .status b { color:var(--red); }
+  .foot a { display:block; margin-top:1rem; color:#8a8a87; text-decoration:none; letter-spacing:.2em; font-size:.8rem; }
+  .foot a:hover { color:#fff; }
+  @keyframes in { from { opacity:0; transform:translate(-50%,-50%) scale(.96); } }
+  @media (max-width:700px){ .l,.r{ display:none; } }
+  @media (prefers-reduced-motion:reduce){ .logo{animation:none;} }
+</style>
+</head>
+<body>
+  <div class="seam" aria-hidden="true"></div>
+  <div class="logo" role="img" aria-label="Onyx Initiative logo"></div>
+  <div class="l">Onyx</div><div class="r">Initiative</div>
+  <div class="foot">
+    <div class="status"><b>■</b> Under construction</div>
+    <a href="https://discord.gg/onyxi">DISCORD.GG/ONYXI →</a>
+  </div>
+</body>
+</html>

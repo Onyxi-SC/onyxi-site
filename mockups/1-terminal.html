@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onyx Initiative — Mockup 1: Terminal</title>
+<link rel="icon" type="image/svg+xml" href="../onxi-logo-bright.svg">
+<style>
+  :root { --red:#b52424; --red-dk:#7a1515; --fg:#d6d6d4; --dim:#6f6f6c; }
+  * { box-sizing:border-box; margin:0; }
+  html,body { height:100%; }
+  body { background:#050505; color:var(--fg); font:15px/1.6 ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace; overflow:hidden; }
+  body::after { /* scanlines */
+    content:""; position:fixed; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px);
+  }
+  .mark { position:fixed; right:-8vmin; bottom:-8vmin; width:70vmin; height:70vmin;
+    background:url("../onxi-logo-bright.svg") center/contain no-repeat; opacity:.08; }
+  .term { position:relative; max-width:52rem; margin:8vh auto 0; padding:0 1.5rem; }
+  .hdr { color:var(--dim); border-bottom:1px solid #222; padding-bottom:.5rem; margin-bottom:1rem; display:flex; justify-content:space-between; }
+  .hdr b { color:var(--red); font-weight:normal; }
+  pre { white-space:pre-wrap; font:inherit; min-height:18em; }
+  .ok { color:#8a8a87; } .warn { color:var(--red); } .hi { color:#fff; }
+  .cursor { display:inline-block; width:.6em; height:1.1em; background:var(--red); vertical-align:-.15em; animation:blink 1s steps(1) infinite; }
+  .links { margin-top:1.5rem; color:var(--dim); }
+  .links a { color:var(--fg); text-decoration:none; border-bottom:1px solid var(--red-dk); }
+  .links a:hover { color:#fff; border-color:var(--red); }
+  @keyframes blink { 50% { opacity:0; } }
+  @media (prefers-reduced-motion:reduce){ .cursor{animation:none;} }
+</style>
+</head>
+<body>
+<div class="mark" aria-hidden="true"></div>
+<div class="term">
+  <div class="hdr"><span>ONXI-NET // node: onyxi.gg</span><b>SECURE CHANNEL</b></div>
+  <pre id="out" aria-live="polite"></pre>
+  <div class="links" id="links" hidden>&gt; <a href="https://discord.gg/onyxi">open channel: discord.gg/onyxi</a></div>
+</div>
+<script>
+const lines = [
+  ['ok',   'ONXI-NET BIOS v4.8 .............................. OK'],
+  ['ok',   'Authenticating relay [Stanton] ................... OK'],
+  ['ok',   'Authenticating relay [Pyro] ...................... OK'],
+  ['ok',   'Authenticating relay [Nyx] ....................... OK'],
+  ['ok',   'Loading contract ledger .......................... OK'],
+  ['warn', 'Mounting public interface ........................ DEFERRED'],
+  ['',     ''],
+  ['hi',   'ONYX INITIATIVE [ONXI]'],
+  ['ok',   'Private military corporation. Discretion assured.'],
+  ['',     ''],
+  ['warn', 'STATUS: UNDER CONSTRUCTION'],
+];
+const out = document.getElementById('out');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let i = 0;
+function next() {
+  if (i >= lines.length) {
+    out.insertAdjacentHTML('beforeend', '<span class="cursor"></span>');
+    document.getElementById('links').hidden = false; return;
+  }
+  const [cls, txt] = lines[i++];
+  const s = document.createElement('span'); s.className = cls; s.textContent = txt + '\n';
+  out.appendChild(s);
+  setTimeout(next, reduce ? 0 : (txt ? 140 + Math.random()*220 : 60));
+}
+next();
+</script>
+</body>
+</html>
