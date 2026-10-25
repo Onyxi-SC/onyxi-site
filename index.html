@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onyx Initiative</title>
+  <meta name="description" content="Onyx Initiative [ONXI] — private military corporation operating across the 'verse.">
+  <meta property="og:title" content="Onyx Initiative">
+  <meta property="og:description" content="Private military corporation. Coming soon.">
+  <meta property="og:image" content="https://onyxi.gg/onxi-logo-512.png">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="/onxi-logo-bright.svg">
+  <link rel="icon" type="image/png" href="/onxi-logo-512.png">
+  <style>
+    :root { --red: #b52424; --red-dk: #7a1515; --fg: #d6d6d4; --dim: #8a8a87; }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body {
+      background: #000; color: var(--fg);
+      font: 16px/1.5 ui-monospace, "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+      display: grid; place-items: center; overflow: hidden;
+    }
+    .mark {
+      position: fixed; inset: 0; margin: auto;
+      width: min(90vmin, 900px); height: min(90vmin, 900px);
+      background: url("/onxi-logo-bright.svg") center / contain no-repeat;
+      opacity: .12; pointer-events: none;
+      animation: fade 2.5s ease-out both;
+    }
+    .box {
+      position: relative; text-align: center;
+      padding: 2rem 2.5rem; max-width: 34rem; margin: 1rem;
+      background: rgba(0,0,0,.55); border: 1px solid #2a2a2a;
+      border-left: 3px solid var(--red-dk); border-right: 3px solid var(--red);
+      backdrop-filter: blur(2px);
+      animation: rise 1.2s .4s ease-out both;
+    }
+    h1 { font-size: 1.6rem; letter-spacing: .35em; text-transform: uppercase; font-weight: 600; }
+    .tag { color: var(--red); letter-spacing: .5em; font-size: .8rem; margin: .25rem 0 1.25rem; }
+    p { color: var(--dim); }
+    .status { margin-top: 1.25rem; font-size: .85rem; letter-spacing: .2em; text-transform: uppercase; }
+    .status::before { content: "■ "; color: var(--red); animation: blink 1.4s steps(1) infinite; }
+    a.btn {
+      display: inline-block; margin-top: 1.5rem; padding: .55rem 1.2rem;
+      color: var(--fg); text-decoration: none; letter-spacing: .15em; font-size: .85rem;
+      border: 1px solid var(--red-dk);
+    }
+    a.btn:hover, a.btn:focus { background: var(--red-dk); color: #fff; }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="mark" aria-hidden="true"></div>
+  <main class="box">
+    <h1>Onyx Initiative</h1>
+    <div class="tag">[ONXI]</div>
+    <p>Corporate in structure. Surgical in execution.</p>
+    <div class="status">Coming soon</div>
+    <a class="btn" href="https://discord.gg/onyxi">Contact via Discord</a>
+  </main>
+</body>
+</html>
